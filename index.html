@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inscripción · Programa de Transformación Digital · Camacol Caldas</title>
+<meta name="description" content="Inscripción de empresas al programa De la preconstrucción virtual a la gestión industrializada de proyectos, de Camacol Capacita.">
+<meta name="theme-color" content="#05041B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  :root{
+    --f1:#05041B; --f2:#140C33; --f3:#241547;
+    --naranja:#F15A24; --naranja-2:#FF8250;
+    --cian:#5BC8F5;
+    --texto:#FFFFFF; --texto-2:#B8B4D6; --texto-3:#8781A8;
+    --panel:rgba(255,255,255,.045); --panel-2:rgba(255,255,255,.075);
+    --borde:rgba(255,255,255,.15); --borde-2:rgba(255,255,255,.28);
+    --error:#FF7A6B;
+    --display:'Dosis','Trebuchet MS',sans-serif;
+    --body:'Source Sans 3','Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--texto);font-family:var(--body);font-size:16px;line-height:1.5;
+    background:var(--f1);
+    background-image:
+      radial-gradient(1100px 620px at 78% 8%, rgba(60,32,120,.55), transparent 62%),
+      radial-gradient(900px 600px at 8% 42%, rgba(36,21,71,.75), transparent 60%),
+      radial-gradient(1000px 700px at 60% 96%, rgba(46,24,96,.55), transparent 65%),
+      linear-gradient(180deg, #05041B 0%, #0C0826 45%, #100A2C 100%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:780px;margin:0 auto;padding:0 18px 70px}
+
+  /* ───────── Encabezado ───────── */
+  header{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08)}
+  header::before{content:"";position:absolute;top:-170px;right:-120px;width:430px;height:430px;
+    background:linear-gradient(135deg,#2A1552,#0B0722);transform:rotate(45deg);opacity:.9}
+  header .inner{max-width:780px;margin:0 auto;padding:54px 18px 46px;position:relative;z-index:1}
+  .eyebrow{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:6px;
+    text-transform:uppercase;color:var(--naranja);margin:0 0 6px}
+  .marca{font-family:var(--display);font-weight:800;line-height:.96;margin:0 0 20px;
+    font-size:clamp(38px,9vw,64px);letter-spacing:-.5px}
+  .marca .d{background:linear-gradient(90deg,var(--naranja),var(--naranja-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(19px,3.4vw,25px);line-height:1.22;
+    margin:0 0 16px;max-width:30ch;text-transform:uppercase;letter-spacing:.3px}
+  .lead{font-size:16px;color:var(--texto-2);margin:0;max-width:54ch}
+  .lead b{color:#fff;font-weight:600}
+
+  /* ───────── Cifras ───────── */
+  .resumen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0 0}
+  .resumen div{background:var(--panel);border:1px solid var(--borde);border-radius:6px;
+    padding:18px 8px;text-align:center}
+  .resumen div:last-child{background:linear-gradient(140deg,rgba(241,90,36,.16),rgba(241,90,36,.05));
+    border-color:rgba(241,90,36,.5)}
+  .resumen b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(20px,4.4vw,27px);
+    color:#fff;line-height:1.05}
+  .resumen div:last-child b{color:var(--naranja-2)}
+  .resumen small{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.1px;
+    text-transform:uppercase;color:var(--texto-3);margin-top:7px}
+  @media(max-width:560px){.resumen{grid-template-columns:repeat(2,1fr)}}
+
+  .aviso{background:rgba(241,90,36,.1);border:1px solid rgba(241,90,36,.35);border-left-width:5px;
+    border-radius:5px;padding:16px 18px;margin:22px 0 0;font-size:15px;color:var(--texto-2)}
+  .aviso strong{color:#fff}
+  .pendiente{background:rgba(255,224,138,.22);color:#FFE08A;padding:1px 5px;border-radius:3px;font-weight:700}
+
+  /* ───────── Secciones ───────── */
+  form{margin-top:34px}
+  fieldset{border:1px solid var(--borde);background:var(--panel);backdrop-filter:blur(2px);
+    padding:26px;margin:0 0 20px;border-radius:7px}
+  legend{font-family:var(--display);font-weight:700;font-size:23px;color:#fff;padding:0 12px;margin-left:-12px;
+    display:flex;align-items:center}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+    background:var(--naranja);color:#fff;font-size:14px;font-weight:700;margin-right:11px;font-family:var(--body)}
+  .hint{font-size:14.5px;color:var(--texto-3);margin:-2px 0 20px;max-width:62ch}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid .full{grid-column:1/-1}
+  @media(max-width:620px){.grid{grid-template-columns:1fr}}
+
+  label{display:block;font-weight:600;font-size:14.5px;color:#EDEBF8;margin-bottom:7px}
+  .req{color:var(--naranja-2)}
+  input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{
+    width:100%;padding:12px 13px;border:1px solid var(--borde-2);border-radius:5px;
+    font-family:var(--body);font-size:16px;color:#fff;background:rgba(255,255,255,.07)}
+  input::placeholder,textarea::placeholder{color:#7B7699}
+  select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#B8B4D6 50%),linear-gradient(135deg,#B8B4D6 50%,transparent 50%);
+    background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+  select option{background:#140C33;color:#fff}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--naranja);
+    box-shadow:0 0 0 3px rgba(241,90,36,.22);background:rgba(255,255,255,.1)}
+  textarea{min-height:96px;resize:vertical}
+  input[readonly]{background:rgba(255,255,255,.03);color:var(--texto-2)}
+
+  .radios{display:flex;flex-wrap:wrap;gap:10px}
+  .radios label{display:flex;align-items:center;gap:8px;font-weight:400;font-size:15px;color:var(--texto-2);
+    border:1px solid var(--borde-2);border-radius:999px;padding:9px 16px;cursor:pointer;margin:0;
+    transition:border-color .15s,background .15s}
+  .radios input{accent-color:var(--naranja)}
+  .radios label:hover{border-color:var(--borde-2);background:rgba(255,255,255,.05)}
+  .radios label:has(input:checked){border-color:var(--naranja);background:rgba(241,90,36,.15);
+    color:#fff;font-weight:600}
+
+  .check{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;font-size:15px;line-height:1.45}
+  .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--naranja);flex:none}
+  .check label{font-weight:400;color:var(--texto-2);margin:0}
+  .check label strong{color:#fff}
+  .check a{color:var(--cian)}
+
+  .copiar{background:rgba(255,255,255,.05);border:1px dashed var(--borde-2);padding:13px 15px;
+    margin-bottom:20px;border-radius:5px}
+  .copiar .check{margin:0}
+  .copiar .check label{color:#EDEBF8}
+
+  .error-msg{color:var(--error);font-size:13.5px;font-weight:600;margin-top:6px;display:none}
+  .campo.invalido input,.campo.invalido select{border-color:var(--error)}
+  .campo.invalido .error-msg{display:block}
+  .hp{position:absolute;left:-9999px}
+
+  /* ───────── Envío ───────── */
+  .enviar{background:linear-gradient(135deg,rgba(241,90,36,.17),rgba(36,21,71,.5));
+    border:1px solid rgba(241,90,36,.4);padding:28px;border-radius:7px}
+  .enviar p{margin:0 0 20px;color:var(--texto-2);font-size:15px}
+  button{width:100%;padding:17px;border:0;border-radius:5px;
+    background:linear-gradient(135deg,var(--naranja),#FF6E33);color:#fff;
+    font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:.5px;cursor:pointer;
+    box-shadow:0 6px 22px rgba(241,90,36,.32)}
+  button:hover{filter:brightness(1.08)}
+  button:disabled{opacity:.55;cursor:progress;box-shadow:none}
+  .fallo{background:rgba(255,122,107,.12);border:1px solid rgba(255,122,107,.45);border-left-width:5px;
+    border-radius:5px;padding:15px 17px;margin-top:18px;font-size:14.5px;color:#FFD6D0;display:none}
+  .fallo a{color:var(--cian)}
+
+  /* ───────── Confirmación ───────── */
+  #ok{display:none;background:var(--panel-2);border:1px solid rgba(91,200,245,.3);border-top:5px solid var(--cian);
+    border-radius:7px;padding:52px 30px;text-align:center;margin-top:34px}
+  #ok h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,6vw,36px);color:#fff;margin:0 0 16px}
+  #ok p{max-width:48ch;margin:0 auto 14px;color:var(--texto-2)}
+  #ok strong{color:#fff}
+  #ok a{color:var(--cian)}
+
+  /* ───────── Pie ───────── */
+  footer{border-top:1px solid rgba(255,255,255,.1);margin-top:44px;padding-top:34px;text-align:center}
+  footer img{width:100%;max-width:620px;height:auto;display:block;margin:0 auto 26px}
+  footer p{font-size:13.5px;color:var(--texto-3);margin:0}
+  footer strong{color:var(--texto-2)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <p class="eyebrow">Programa</p>
+    <p class="marca">Transformación<br><span class="d">Digital</span></p>
+    <h1>De la preconstrucción virtual a la gestión industrializada de proyectos</h1>
+    <p class="lead">Inscripción de empresas · <b>Camacol Capacita</b>, en alianza con Somos Esensi 7 S.A.S. y Bimated</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="resumen">
+    <div><b>24</b><small>horas</small></div>
+    <div><b>2</b><small>meses</small></div>
+    <div><b>3</b><small>participantes</small></div>
+    <div><b>$2.200.000</b><small>por empresa</small></div>
+  </div>
+
+  <!-- ►►► EDITAR ANTES DE PUBLICAR: definir el tratamiento del IVA ◄◄◄ -->
+  <p class="aviso"><strong>Antes de diligenciar:</strong> el programa inicia el <strong>13 de octubre de 2026</strong>.
+  Las sesiones virtuales son martes y jueves de 6:30 a 8:30 p. m., y hay dos jornadas presenciales en Manizales
+  el 10 y el 12 de noviembre. El valor es de <strong>$2.200.000 por empresa</strong>
+  <span class="pendiente">más IVA</span> e incluye hasta tres participantes.</p>
+
+  <form id="form" novalidate>
+
+    <!-- 1 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">1</span>La empresa</legend>
+      <div class="grid">
+        <div class="campo full">
+          <label for="razon">Razón social <span class="req">*</span></label>
+          <input type="text" id="razon" name="razon_social" required autocomplete="organization">
+          <p class="error-msg">Escriba la razón social de la empresa.</p>
+        </div>
+        <div class="campo">
+          <label for="nit">NIT <span class="req">*</span></label>
+          <input type="text" id="nit" name="nit" required inputmode="numeric" placeholder="900123456-7">
+          <p class="error-msg">Escriba el NIT con dígito de verificación.</p>
+        </div>
+        <div class="campo">
+          <label for="ciudad">Ciudad <span class="req">*</span></label>
+          <input type="text" id="ciudad" name="ciudad" value="Manizales" required>
+          <p class="error-msg">Indique la ciudad.</p>
+        </div>
+        <div class="campo full">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" name="direccion" autocomplete="street-address">
+        </div>
+        <div class="campo full">
+          <label>¿La empresa está afiliada a Camacol Caldas? <span class="req">*</span></label>
+          <div class="radios">
+            <label><input type="radio" name="afiliada" value="Sí" required> Sí</label>
+            <label><input type="radio" name="afiliada" value="No"> No</label>
+            <label><input type="radio" name="afiliada" value="En proceso"> En proceso</label>
+          </div>
+          <p class="error-msg">Seleccione una opción.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 2 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">2</span>Quién inscribe</legend>
+      <p class="hint">La persona que autoriza la participación de la empresa.</p>
+      <div class="grid">
+        <div class="campo">
+          <label for="r_nombre">Nombre completo <span class="req">*</span></label>
+          <input type="text" id="r_nombre" name="responsable_nombre" required autocomplete="name">
+          <p class="error-msg">Escriba el nombre.</p>
+        </div>
+        <div class="campo">
+          <label for="r_cargo">Cargo <span class="req">*</span></label>
+          <input type="text" id="r_cargo" name="responsable_cargo" required>
+          <p class="error-msg">Escriba el cargo.</p>
+        </div>
+        <div class="campo">
+          <label for="r_correo">Correo <span class="req">*</span></label>
+          <input type="email" id="r_correo" name="responsable_correo" required autocomplete="email">
+          <p class="error-msg">Escriba un correo válido.</p>
+        </div>
+        <div class="campo">
+          <label for="r_celular">Celular <span class="req">*</span></label>
+          <input type="tel" id="r_celular" name="responsable_celular" required autocomplete="tel" placeholder="300 000 0000">
+          <p class="error-msg">Escriba un celular de contacto.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 3 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">3</span>Participante líder</legend>
+      <p class="hint">Quien lidera el equipo dentro de la empresa y será nuestro contacto durante el programa.
+      Los otros dos cupos se confirman por correo antes del inicio.</p>
+
+      <div class="copiar">
+        <div class="check">
+          <input type="checkbox" id="mismo">
+          <label for="mismo">El participante líder es la misma persona que inscribe</label>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="campo">
+          <label for="p_nombre">Nombre completo <span class="req">*</span></label>
+          <input type="text" id="p_nombre" name="lider_nombre" required>
+          <p class="error-msg">Escriba el nombre.</p>
+        </div>
+        <div class="campo">
+          <label for="p_cargo">Cargo <span class="req">*</span></label>
+          <input type="text" id="p_cargo" name="lider_cargo" required>
+          <p class="error-msg">Escriba el cargo.</p>
+        </div>
+        <div class="campo">
+          <label for="p_correo">Correo <span class="req">*</span></label>
+          <input type="email" id="p_correo" name="lider_correo" required>
+          <p class="error-msg">Escriba un correo válido.</p>
+        </div>
+        <div class="campo">
+          <label for="p_celular">Celular <span class="req">*</span></label>
+          <input type="tel" id="p_celular" name="lider_celular" required>
+          <p class="error-msg">Escriba un celular.</p>
+        </div>
+        <div class="campo full">
+          <label>Rol en el equipo <span class="req">*</span></label>
+          <div class="radios">
+            <label><input type="radio" name="lider_rol" value="Gerencia o dirección general" required> Gerencia o dirección general</label>
+            <label><input type="radio" name="lider_rol" value="Programación y presupuestos"> Programación y presupuestos</label>
+            <label><input type="radio" name="lider_rol" value="Dirección o residencia de obra"> Dirección o residencia de obra</label>
+            <label><input type="radio" name="lider_rol" value="BIM o diseño"> BIM o diseño</label>
+            <label><input type="radio" name="lider_rol" value="Otro"> Otro</label>
+          </div>
+          <p class="error-msg">Seleccione el rol.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 4 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">4</span>Proyecto piloto</legend>
+      <p class="hint">Todo el programa se trabaja sobre un proyecto real de su empresa. Puede ser uno en curso
+      o uno próximo a iniciar.</p>
+      <div class="grid">
+        <div class="campo full">
+          <label for="proy">Nombre del proyecto <span class="req">*</span></label>
+          <input type="text" id="proy" name="proyecto_nombre" required>
+          <p class="error-msg">Escriba el nombre del proyecto.</p>
+        </div>
+        <div class="campo">
+          <label for="proy_tipo">Tipo de proyecto <span class="req">*</span></label>
+          <select id="proy_tipo" name="proyecto_tipo" required>
+            <option value="">Seleccione…</option>
+            <option>Vivienda VIS</option>
+            <option>Vivienda No VIS</option>
+            <option>Comercial</option>
+            <option>Institucional</option>
+            <option>Industrial</option>
+            <option>Infraestructura</option>
+            <option>Otro</option>
+          </select>
+          <p class="error-msg">Seleccione el tipo.</p>
+        </div>
+        <div class="campo">
+          <label for="proy_etapa">Etapa actual <span class="req">*</span></label>
+          <select id="proy_etapa" name="proyecto_etapa" required>
+            <option value="">Seleccione…</option>
+            <option>En diseño</option>
+            <option>En preconstrucción</option>
+            <option>Próximo a iniciar obra</option>
+            <option>En obra</option>
+          </select>
+          <p class="error-msg">Seleccione la etapa.</p>
+        </div>
+        <div class="campo">
+          <label for="proy_area">Área aproximada (m²)</label>
+          <input type="number" id="proy_area" name="proyecto_area" min="0" step="1">
+        </div>
+        <div class="campo">
+          <label for="proy_unidades">N.º de unidades (si aplica)</label>
+          <input type="number" id="proy_unidades" name="proyecto_unidades" min="0" step="1">
+        </div>
+        <div class="campo full">
+          <label>¿Tienen hoy un modelo BIM de este proyecto? <span class="req">*</span></label>
+          <div class="radios">
+            <label><input type="radio" name="tiene_modelo" value="Sí, completo" required> Sí, completo</label>
+            <label><input type="radio" name="tiene_modelo" value="Parcial"> Parcial</label>
+            <label><input type="radio" name="tiene_modelo" value="No"> No</label>
+          </div>
+          <p class="error-msg">Seleccione una opción.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 5 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">5</span>Punto de partida</legend>
+      <p class="hint">Tres preguntas cortas para que los formadores ajusten el contenido al nivel del grupo.
+      No hay respuestas buenas ni malas.</p>
+      <div class="grid">
+        <div class="campo full">
+          <label>Experiencia de la empresa con BIM <span class="req">*</span></label>
+          <div class="radios">
+            <label><input type="radio" name="madurez_bim" value="Ninguna" required> Ninguna</label>
+            <label><input type="radio" name="madurez_bim" value="Modelado básico"> Modelado básico</label>
+            <label><input type="radio" name="madurez_bim" value="Coordinación entre disciplinas"> Coordinación entre disciplinas</label>
+            <label><input type="radio" name="madurez_bim" value="4D o 5D"> 4D o 5D</label>
+          </div>
+          <p class="error-msg">Seleccione una opción.</p>
+        </div>
+        <div class="campo full">
+          <label>¿Cómo controlan hoy el avance de obra? <span class="req">*</span></label>
+          <div class="radios">
+            <label><input type="radio" name="control_obra" value="Informes semanales en Excel" required> Informes semanales en Excel</label>
+            <label><input type="radio" name="control_obra" value="Software de programación"> Software de programación</label>
+            <label><input type="radio" name="control_obra" value="Seguimiento en comité, sin formato fijo"> En comité, sin formato fijo</label>
+            <label><input type="radio" name="control_obra" value="No está formalizado"> No está formalizado</label>
+          </div>
+          <p class="error-msg">Seleccione una opción.</p>
+        </div>
+        <div class="campo full">
+          <label for="software">Software que usan hoy (modelado, programación, presupuestos)</label>
+          <input type="text" id="software" name="software" placeholder="Revit, MS Project, Sinco, Excel…">
+        </div>
+        <div class="campo full">
+          <label for="expectativa">¿Qué esperan resolver con el programa?</label>
+          <textarea id="expectativa" name="expectativa" placeholder="Ej.: reducir reprocesos por choques entre disciplinas, mejorar el control de cantidades…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 6 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">6</span>Facturación</legend>
+      <div class="copiar">
+        <div class="check">
+          <input type="checkbox" id="fact_igual" checked>
+          <label for="fact_igual">Facturar a la misma razón social y NIT indicados arriba</label>
+        </div>
+      </div>
+      <div class="grid" id="bloque_fact" hidden>
+        <div class="campo">
+          <label for="f_razon">Razón social para facturar</label>
+          <input type="text" id="f_razon" name="factura_razon">
+        </div>
+        <div class="campo">
+          <label for="f_nit">NIT para facturar</label>
+          <input type="text" id="f_nit" name="factura_nit" inputmode="numeric">
+        </div>
+      </div>
+      <div class="grid" style="margin-top:18px">
+        <div class="campo">
+          <label for="f_correo">Correo para factura electrónica <span class="req">*</span></label>
+          <input type="email" id="f_correo" name="factura_correo" required>
+          <p class="error-msg">Escriba un correo válido.</p>
+        </div>
+        <div class="campo">
+          <label for="f_contacto">Contacto de facturación</label>
+          <input type="text" id="f_contacto" name="factura_contacto">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- 7 ─────────────────────────────── -->
+    <fieldset>
+      <legend><span class="num">7</span>Confirmaciones</legend>
+      <div class="campo">
+        <div class="check">
+          <input type="checkbox" id="c1" name="acepta_dedicacion" value="Sí" required>
+          <label for="c1">Confirmo que nuestro equipo puede dedicar <strong>dos horas semanales</strong> durante los
+          dos meses del programa, y asistir a las dos jornadas presenciales en Manizales.</label>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="c2" name="acepta_valor" value="Sí" required>
+          <label for="c2">Entiendo que el valor de la participación es de <strong>$2.200.000 por empresa</strong>,
+          incluye hasta tres participantes, y que Camacol Caldas emitirá la factura correspondiente.</label>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="c3" name="acepta_datos" value="Sí" required>
+          <label for="c3">Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012 y a la
+          <a href="[URL DE LA POLÍTICA DE TRATAMIENTO DE DATOS]" target="_blank" rel="noopener">política de
+          tratamiento de datos de Camacol Caldas</a>.</label>
+        </div>
+        <p class="error-msg" id="err_checks">Debe aceptar las tres confirmaciones para continuar.</p>
+      </div>
+    </fieldset>
+
+    <!-- honeypot antispam -->
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="enviar">
+      <p>Al enviar, recibirá un correo de confirmación con los siguientes pasos y el formato para registrar
+      a los otros dos participantes del equipo.</p>
+      <button type="submit" id="btn">Inscribir a mi empresa</button>
+      <div class="fallo" id="fallo">No pudimos enviar el formulario. Revise su conexión e intente de nuevo,
+      o escríbanos a <a href="mailto:sergio.franco@camacolcaldas.org">sergio.franco@camacolcaldas.org</a>.</div>
+    </div>
+  </form>
+
+  <section id="ok">
+    <h2>Inscripción recibida</h2>
+    <p>Gracias. Registramos la inscripción de <strong id="ok_empresa"></strong> en el programa.</p>
+    <p>En las próximas horas le llegará un correo con la confirmación, los datos de facturación y el formato
+    para registrar a los otros dos participantes.</p>
+    <p>Si necesita algo antes, escríbanos a <a href="mailto:sergio.franco@camacolcaldas.org">sergio.franco@camacolcaldas.org</a>
+    o al <strong>304 575 8989</strong>.</p>
+  </section>
+
+  <footer>
+    <img src="logos.png" alt="Camacol Caldas · Camacol Innova · Somos Esensi · Bimated">
+    <p><strong>Cámara Regional de la Construcción — Camacol Caldas</strong><br>
+    Calle 62 # 23-61, Edificio Torre Plaza 62, oficina 1104 · Manizales</p>
+  </footer>
+</div>
+
+<script>
+// ═══ Pegue aquí la URL del despliegue de Google Apps Script ═══
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbyCWnvVClehMOj4Y6CiV9Xd7kGpON9XevWt93Q5i1yunyAfgCfOjPC00qpZ5hqPmNTG4w/exec";
+
+const ENDPOINT_OK = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(ENDPOINT);
+
+const form = document.getElementById('form');
+const btn  = document.getElementById('btn');
+const fallo= document.getElementById('fallo');
+
+/* Copiar los datos de quien inscribe al participante líder */
+const mismo = document.getElementById('mismo');
+const pares = [['r_nombre','p_nombre'],['r_cargo','p_cargo'],['r_correo','p_correo'],['r_celular','p_celular']];
+function sincronizar(){
+  pares.forEach(([a,b])=>{
+    const o=document.getElementById(a), d=document.getElementById(b);
+    if(mismo.checked){ d.value=o.value; d.readOnly=true; }
+    else{ d.readOnly=false; }
+  });
+}
+mismo.addEventListener('change',sincronizar);
+pares.forEach(([a])=>document.getElementById(a).addEventListener('input',()=>{ if(mismo.checked) sincronizar(); }));
+
+/* Bloque de facturación distinto */
+const factIgual = document.getElementById('fact_igual');
+const bloqueFact= document.getElementById('bloque_fact');
+factIgual.addEventListener('change',()=>{ bloqueFact.hidden = factIgual.checked; });
+
+/* Validación */
+function marcar(el, ok){
+  const campo = el.closest('.campo');
+  if(campo) campo.classList.toggle('invalido', !ok);
+}
+function validar(){
+  let ok = true, primero = null;
+  form.querySelectorAll('[required]').forEach(el=>{
+    let valido;
+    if(el.type==='radio'){ valido = !!form.querySelector(`[name="${el.name}"]:checked`); }
+    else if(el.type==='checkbox'){ valido = el.checked; }
+    else if(el.type==='email'){ valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()); }
+    else { valido = el.value.trim().length > 0; }
+    if(el.type!=='checkbox') marcar(el, valido);
+    if(!valido && !primero) primero = el;
+    if(!valido) ok = false;
+  });
+  const checks = ['c1','c2','c3'].every(id=>document.getElementById(id).checked);
+  document.getElementById('err_checks').style.display = checks ? 'none' : 'block';
+  if(primero) primero.scrollIntoView({behavior:'smooth', block:'center'});
+  return ok && checks;
+}
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  fallo.style.display='none';
+  if(!ENDPOINT_OK){
+    fallo.textContent = 'El formulario aun no esta conectado al receptor de inscripciones. '
+      + 'Avisenos a sergio.franco@camacolcaldas.org antes de continuar.';
+    fallo.style.display='block';
+    return;
+  }
+  if(!validar()) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+
+  const datos = new FormData(form);
+  datos.append('fecha_envio', new Date().toISOString());
+  datos.append('origen', document.referrer || 'directo');
+
+  try{
+    const res = await fetch(ENDPOINT, { method:'POST', body: datos });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    let cuerpo = null;
+    try{ cuerpo = JSON.parse(await res.text()); }catch(_){ cuerpo = null; }
+    if(cuerpo && cuerpo.ok !== true) throw new Error(cuerpo.error || 'el receptor no confirmo el registro');
+    document.getElementById('ok_empresa').textContent = datos.get('razon_social') || 'su empresa';
+    form.style.display='none';
+    document.querySelector('.aviso').style.display='none';
+    document.getElementById('ok').style.display='block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }catch(err){
+    fallo.style.display='block';
+    btn.disabled = false;
+    btn.textContent = 'Inscribir a mi empresa';
+  }
+});
+</script>
+</body>
+</html>
