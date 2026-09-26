@@ -176,7 +176,7 @@
   <p class="aviso"><strong>Antes de diligenciar:</strong> el programa inicia el <strong>13 de octubre de 2026</strong>.
   Las sesiones virtuales son martes y jueves de 6:30 a 8:30 p. m., y hay dos jornadas presenciales en Manizales
   el 10 y el 12 de noviembre. El valor es de <strong>$2.200.000 por empresa</strong>
-  <span class="pendiente">[más IVA]</span> e incluye hasta tres participantes.</p>
+  <span class="pendiente">más IVA</span> e incluye hasta tres participantes.</p>
 
   <form id="form" novalidate>
 
@@ -448,7 +448,7 @@
       a los otros dos participantes del equipo.</p>
       <button type="submit" id="btn">Inscribir a mi empresa</button>
       <div class="fallo" id="fallo">No pudimos enviar el formulario. Revise su conexión e intente de nuevo,
-      o escríbanos a <a href="mailto:[sergio.franco@camacolcaldas.com]">[sergio.franco@camacolcaldas.com]</a>.</div>
+      o escríbanos a <a href="mailto:sergio.franco@camacolcaldas.org">sergio.franco@camacolcaldas.org</a>.</div>
     </div>
   </form>
 
@@ -457,8 +457,8 @@
     <p>Gracias. Registramos la inscripción de <strong id="ok_empresa"></strong> en el programa.</p>
     <p>En las próximas horas le llegará un correo con la confirmación, los datos de facturación y el formato
     para registrar a los otros dos participantes.</p>
-    <p>Si necesita algo antes, escríbanos a <a href="mailto:[sergio.franco@camacolcaldas.com]">[sergio.franco@camacolcaldas.com]</a>
-    o al <strong>[3045758989]</strong>.</p>
+    <p>Si necesita algo antes, escríbanos a <a href="mailto:sergio.franco@camacolcaldas.org">sergio.franco@camacolcaldas.org</a>
+    o al <strong>304 575 8989</strong>.</p>
   </section>
 
   <footer>
@@ -470,7 +470,9 @@
 
 <script>
 // ═══ Pegue aquí la URL del despliegue de Google Apps Script ═══
-const ENDPOINT = "[https://script.google.com/macros/s/AKfycbyCWnvVClehMOj4Y6CiV9Xd7kGpON9XevWt93Q5i1yunyAfgCfOjPC00qpZ5hqPmNTG4w/exec]";
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbyCWnvVClehMOj4Y6CiV9Xd7kGpON9XevWt93Q5i1yunyAfgCfOjPC00qpZ5hqPmNTG4w/exec";
+
+const ENDPOINT_OK = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(ENDPOINT);
 
 const form = document.getElementById('form');
 const btn  = document.getElementById('btn');
@@ -520,6 +522,12 @@ function validar(){
 form.addEventListener('submit', async (e)=>{
   e.preventDefault();
   fallo.style.display='none';
+  if(!ENDPOINT_OK){
+    fallo.textContent = 'El formulario aun no esta conectado al receptor de inscripciones. '
+      + 'Avisenos a sergio.franco@camacolcaldas.org antes de continuar.';
+    fallo.style.display='block';
+    return;
+  }
   if(!validar()) return;
 
   btn.disabled = true;
@@ -530,7 +538,11 @@ form.addEventListener('submit', async (e)=>{
   datos.append('origen', document.referrer || 'directo');
 
   try{
-    await fetch(ENDPOINT, { method:'POST', body: datos });
+    const res = await fetch(ENDPOINT, { method:'POST', body: datos });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    let cuerpo = null;
+    try{ cuerpo = JSON.parse(await res.text()); }catch(_){ cuerpo = null; }
+    if(cuerpo && cuerpo.ok !== true) throw new Error(cuerpo.error || 'el receptor no confirmo el registro');
     document.getElementById('ok_empresa').textContent = datos.get('razon_social') || 'su empresa';
     form.style.display='none';
     document.querySelector('.aviso').style.display='none';
